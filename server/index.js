@@ -29,13 +29,13 @@ app.use(errorHandler);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
-    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html')));
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'client', 'dist', 'index.html')));
 } else {
     app.get('/', (req, res) => res.send('Please set to production'));
 }
 
 // render client for any path
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')));
+// app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')));
 
 app.listen(port, (req, res) => {
     console.log(`Server is running on port ${port}`);
