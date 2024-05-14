@@ -34,7 +34,7 @@ const UpdateItem = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/links/${id}`);
+            const res = await axios.get(`https://saveurl.onrender.com/api/links/${id}`);
             setFormData({
                 title: res.data.title,
                 description: res.data.description,
@@ -49,7 +49,7 @@ const UpdateItem = () => {
     const updateData = async (updatedData) => {
         if (window.confirm(`Are you sure you want to update ${title}?`)) {
             try {
-                await axios.put(`http://localhost:5000/api/links/${id}`, updatedData);
+                await axios.put(`https://saveurl.onrender.com/api/links/${id}`, updatedData);
                 toast.success('URL successfully updated');
                 navigate('/');
             } catch (err) {

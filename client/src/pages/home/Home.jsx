@@ -16,7 +16,7 @@ const Home = () => {
     
     const fetchData = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/links');
+            const res = await axios.get('https://saveurl.onrender.com/api/links');
             setLoading(false);
             setLinks(res.data);
         } catch (err) {
@@ -27,7 +27,7 @@ const Home = () => {
     const handleDelete = async (id, title) => {
         if (window.confirm(`Are you sure you want to delete ${title} item?`)) {
             try {
-                await axios.delete(`http://localhost:5000/api/links/${id}`);
+                await axios.delete(`https://saveurl.onrender.com/api/links/${id}`);
                 setLinks((prevLinks) => prevLinks.filter((link) => link._id !== id));
                 toast.success(`${title} susccessfully deleted`);
             } catch (err) {

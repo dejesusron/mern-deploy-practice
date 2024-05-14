@@ -32,7 +32,7 @@ const AddItem = () => {
 
     const fetchData = async (data) => {
         try {
-            await axios.post('http://localhost:5000/api/links', data);
+            await axios.post('https://saveurl.onrender.com/api/links', data);
             toast.success(`${title} successfully added`);
             navigate('/');
         } catch (err) {
